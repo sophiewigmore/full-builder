@@ -28,10 +28,10 @@ jobs:
         GCR_PUSH_BOT_JSON_KEY: ${{ secrets.GCR_PUSH_BOT_JSON_KEY }}
       run: |
         echo "${GCR_PUSH_BOT_JSON_KEY}" | docker login --username _json_key --password-stdin gcr.io
-        docker tag builder-tmp "gcr.io/paketo-buildpacks/builder-tmp:full"
-        docker tag builder-tmp "gcr.io/paketo-buildpacks/builder-tmp:latest"
-        docker tag builder-tmp "gcr.io/paketo-buildpacks/builder-tmp:${{ steps.event.outputs.tag }}-full"
+        docker tag builder-tmp "gcr.io/paketo-buildpacks/forkbuilder-tmp:full"
+        docker tag builder-tmp "gcr.io/paketo-buildpacks/forkbuilder-tmp:latest"
+        docker tag builder-tmp "gcr.io/paketo-buildpacks/forkbuilder-tmp:${{ steps.event.outputs.tag }}-full"
 
-        docker push "gcr.io/paketo-buildpacks/builder-tmp:full"
-        docker push "gcr.io/paketo-buildpacks/builder-tmp:latest"
-        docker push "gcr.io/paketo-buildpacks/builder-tmp:${{ steps.event.outputs.tag }}-full"
+        docker push "gcr.io/paketo-buildpacks/forkbuilder-tmp:full"
+        docker push "gcr.io/paketo-buildpacks/forkbuilder-tmp:latest"
+        docker push "gcr.io/paketo-buildpacks/forkbuilder-tmp:${{ steps.event.outputs.tag }}-full"
